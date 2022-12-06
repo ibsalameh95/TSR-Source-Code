@@ -2,3 +2,4 @@ WSI/
 data/
 outputs/
 tools/prediction2mask.py
+__pycache__/
