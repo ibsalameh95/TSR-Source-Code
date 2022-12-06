@@ -12,7 +12,7 @@ pip install -r requirements.txt
 
 ## Data
 
-> please download the data from here https://zenodo.org/record/4024676#.Y49odS8RpQI, move them under data directory in project path.
+> please download the data from this link https://zenodo.org/record/4024676#.Y49odS8RpQI, move downloaded folders into project_path/data/ directory. 
 
 ## Project files
  
