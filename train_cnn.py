@@ -18,13 +18,12 @@ from sklearn.metrics import confusion_matrix
 parser = argparse.ArgumentParser(
     description='Train a deep MIL using VGG19 using Transfar Learning')
 
-
 # Arguments to be provided before running the code.
 parser.add_argument('--train_dataset_dir', default='data/TSR-CRC-Training-set-part1',
                     help='dataset info folder', dest='train_dataset_dir')
 parser.add_argument('--vall_dataset_dir', default='data/TSR_MY_TEST',
                     help='dataset info folder', dest='vall_dataset_dir')                  
-parser.add_argument('--batch_size', default='4', type=int,
+parser.add_argument('--batch_size', default='64', type=int,
                     help='batch size', dest='batch_size')
 parser.add_argument('--learning_rate', default='3e-4', type=float,
                     help='number of patches each patient has', dest='learning_rate')

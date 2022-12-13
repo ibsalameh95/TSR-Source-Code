@@ -27,7 +27,7 @@ def plt_charts(train_loss_list, train_acc_list, vall_loss_list, vall_acc_list):
         
         plt.legend(loc="best")
         plt.show
-        plt.savefig('./files/loss_and_acc_vs_epoch.png')
+        plt.savefig('./outputs/files/loss_and_acc_vs_epoch.png')
 
 
 def plot_confusion_matrix(cm, classes,
