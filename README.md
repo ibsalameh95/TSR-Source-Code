@@ -26,10 +26,10 @@ pip install -r requirements.txt
 ## Training
 
 ```train
-python train_cnn.py --train_dataset_dir=TSR-CRC-Training-set-part1 --vall_dataset_dir=TSR-CRC-Training-set-part3 --num_epochs=10 --batch_size=64 --learning_rate=3e-4
+python train_cnn.py --train_dataset_dir=data/TSR-CRC-Training-set-part1 --vall_dataset_dir=data/TSR-CRC-Training-set-part3 --num_epochs=10 --batch_size=64 --learning_rate=3e-4
 ```
 
 
 ```test
-python test_cnn.py --test_dataset_dir=TSR-CRC-Test-set2 --batch_size=64
+python test_cnn.py --test_dataset_dir=data/TSR-CRC-Test-set2 --batch_size=64
 ```
