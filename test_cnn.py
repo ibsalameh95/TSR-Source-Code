@@ -106,10 +106,10 @@ testing_results.to_csv('./outputs/files/test_results.csv', header= True)
 
 # plot testing confusion matrix
 
-data_arr = pd.read_csv('./outputs/files/validation_results.csv')
+test_results = pd.read_csv('./outputs/files/test_results.csv')
 
-label_index_arr = np.asarray(data_arr['y_true'],dtype=str)
-pred_arr = np.asarray(data_arr['y_pred'],dtype=str)
+label_index_arr = np.asarray(test_results['y_true'],dtype=str)
+pred_arr = np.asarray(test_results['y_pred'],dtype=str)
 
 conf_mat = confusion_matrix(label_index_arr, pred_arr)
 
@@ -122,21 +122,21 @@ plt.savefig('./outputs/files/testing_results_cm.png')
 
 # plot wrongly predicted images: 
 
-df = (pd.read_csv('./outputs/files/test_results.csv')[lambda x: x['y_true'] != x['y_pred']])
+test_wrong_prediction = (pd.read_csv('./outputs/files/test_results.csv')[lambda x: x['y_true'] != x['y_pred']])
 
 num_row = 9
 num_col = 4
 images = {}
-classes = df['y_true'].unique()
+classes = test_wrong_prediction['y_true'].unique()
 
 for i in range(len(classes)):
-    images[classes[i]] = np.random.choice(df['y_true'][lambda x: x == classes[i]].index.tolist(),num_col).tolist()
+    images[classes[i]] = np.random.choice(test_wrong_prediction['y_true'][lambda x: x == classes[i]].index.tolist(),num_col).tolist()
 
 _, axs = plt.subplots(num_row, num_col, figsize=(10, 20))
 _.tight_layout(pad=2)
 for i,c in enumerate(classes): 
     for img, ax in zip(images[c], axs[i]):
-        ax.imshow(mpimg.imread(df['image_path'][img]))
-        ax.set_title('{} -> {}'.format(df['y_true'][img], df['y_pred'][img]), loc= 'left')
+        ax.imshow(mpimg.imread(test_wrong_prediction['image_path'][img]))
+        ax.set_title('{} -> {}'.format(test_wrong_prediction['y_true'][img], test_wrong_prediction['y_pred'][img]), loc= 'left')
 
 plt.savefig('./outputs/files/wrongly_predicted_images_test_ds.png')
